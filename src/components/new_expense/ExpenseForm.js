@@ -30,7 +30,7 @@ const ExpenseForm = (props) => {
     event.preventDefault()
 
     const expenseData = {
-      ...formData, date: new Date(formData.date)
+      ...formData, amount: +formData.amount, date: new Date(formData.date)
     }
 
     setFormData({
