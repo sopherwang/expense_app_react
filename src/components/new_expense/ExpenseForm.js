@@ -1,11 +1,11 @@
 import './ExpenseForm.css'
 import {useState} from 'react'
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   const [formData, setFormData] = useState({
-    title:'',
-    amount:'',
-    date:'',
+    title: '',
+    amount: '',
+    date: '',
   })
 
   const titleChangeHandler = (event) => {
@@ -39,7 +39,7 @@ const ExpenseForm = () => {
       date: '',
     })
 
-    console.log(expenseData)
+    props.onSaveExpenseData(expenseData)
   }
 
   return (
@@ -59,6 +59,7 @@ const ExpenseForm = () => {
         </div>
       </div>
       <div className='new-expense__actions'>
+        <button type='button' onClick={props.cancelAddData}>Cancel</button>
         <button type='submit'>Add Expense</button>
       </div>
     </form>
